@@ -11,19 +11,18 @@
 
 function getCommon($nums1, $nums2)
 {
-  // $nums2 = array_flip($nums2);
-  // var_dump($nums2);
-  // exit;
-  foreach ($nums1 as $key => $value) {
-    if (isset($nums2[$key]) == $value) {
-      return $value;
+  // merubah value pada array menjadi key
+  $newNums2 = array_flip($nums2);
+  foreach ($nums1 as $key1 => $value1) {
+    if (isset($newNums2[$value1])) {
+      return $value1;
     }
   }
-
   return -1;
 }
-
 var_dump(getCommon([2, 4], [1, 2]));
 var_dump(getCommon([1, 2], [2, 4]));
+
+
 // var_dump(getCommon([1, 2, 3], [2, 4]));
 // var_dump(getCommon([1, 2, 3, 6], [2, 3, 4, 5]));
